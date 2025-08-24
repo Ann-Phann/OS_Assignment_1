@@ -30,7 +30,7 @@ typedef struct {
     char command[NL];
 } backgroundProcess;
 
-backgroundProcess bgProcesses[MAX_BACKGROUND]
+backgroundProcess bgProcesses[MAX_BACKGROUND];
 int latest_background = 0;
 
 void prompt(void)
