@@ -141,15 +141,15 @@ int main(int argk, char *argv[], char *envp[])
         }
         default:			/* code executed only by parent process */
         {
-          if (!isBackground) {
+          if (!is_background) {
             int status;
             if (waitpid(frkRtnVal, &status, 0) == -1) perror("waitpid");
           } else {
-            latestBackground++;
-            bgProcesses[latestBackground].pid = frkRtnVal;
-            strcpy(bgProcesses[latestBackground].command, command);
+            latest_background++;
+            bgProcesses[latest_background].pid = frkRtnVal;
+            strcpy(bgProcesses[latest_background].command, command);
 
-            fprintf(stdout, "[%i] %d\n", latestBackground, frkRtnVal);
+            fprintf(stdout, "[%i] %d\n", latest_background, frkRtnVal);
             fflush(stdout);
           }
           break;
